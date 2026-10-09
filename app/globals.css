@@ -1,26 +1,96 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * SwachhAI civic-editorial theme.
+ * Warm paper, ink text, deep leaf-green + terracotta accents.
+ * Single deliberate light theme — no auto dark mode.
+ */
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-paper: #faf6ee;
+  --color-parchment: #f3ecdd;
+  --color-ink: #1d1a15;
+  --color-ink-soft: #57504a;
+  --color-ink-faint: #8a8178;
+  --color-line: #e3d9c6;
+
+  --color-leaf-950: #0c3822;
+  --color-leaf-900: #0e4d2e;
+  --color-leaf-700: #14713f;
+  --color-leaf-100: #dcefe2;
+  --color-leaf-50: #eef7f0;
+
+  --color-clay-700: #b3401a;
+  --color-clay-100: #f7e3d5;
+  --color-saffron-500: #e07b24;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle survey-grid paper texture for hero surfaces */
+.texture-grid {
+  background-image:
+    linear-gradient(to right, rgb(29 26 21 / 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(29 26 21 / 0.055) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.texture-dots {
+  background-image: radial-gradient(rgb(29 26 21 / 0.10) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* Tricolor rule — quiet nod to the Indian flag, used sparingly */
+.tricolor-rule {
+  background: linear-gradient(
+    to right,
+    #e07b24 0 33%,
+    #f3ecdd 33% 66%,
+    #14713f 66% 100%
+  );
+}
+
+/* Rubber-stamp treatment for priority marks */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid currentColor;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  transform: rotate(-3deg);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  mask-size: 120px;
+}
+
+/* Ledger row hover */
+.ledger-row {
+  transition: background-color 150ms ease;
+}
+.ledger-row:hover {
+  background-color: var(--color-leaf-50);
+}
+
+::selection {
+  background: var(--color-leaf-900);
+  color: #fff;
 }

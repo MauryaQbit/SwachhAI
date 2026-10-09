@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "dataset": "Major waste disposal sites, Delhi NCT, India",
+    "source": "OpenStreetMap via Nominatim search API (https://nominatim.openstreetmap.org)",
+    "fetched": "2026-10-09",
+    "method": "Name + bounded-viewbox queries, countrycodes=in; results kept only when OSM returned an explicit named feature inside the Delhi NCT bbox (28.40,76.84–28.88,77.35). See scripts/fetch-osm-infrastructure.mjs to reproduce.",
+    "queries": [
+      "Bhalswa landfill Delhi",
+      "Ghazipur landfill Delhi",
+      "Okhla landfill Delhi",
+      "landfill Delhi India (bounded viewbox)"
+    ],
+    "license": "Open Database License (ODbL) 1.0 — https://osm.org/copyright",
+    "attribution": "Data © OpenStreetMap contributors",
+    "note": "Only three major sites are explicitly mapped/named in OSM for Delhi; smaller dhalaos, dustbins and kabadiwala shops are largely unmapped, so they are honestly absent rather than invented. Coordinates are site centroids from OSM way geometries."
+  },
+  "facilities": [
+    {
+      "id": "osm-way-414943488",
+      "name": "Bhalswa Landfill",
+      "kind": "landfill",
+      "latitude": 28.7409265,
+      "longitude": 77.1577164,
+      "locality": "Bhalswa, North Delhi",
+      "osmType": "way",
+      "osmId": 414943488
+    },
+    {
+      "id": "osm-way-76727509",
+      "name": "Ghazipur Landfill",
+      "kind": "landfill",
+      "latitude": 28.6232992,
+      "longitude": 77.3266629,
+      "locality": "Ghazipur, East Delhi",
+      "osmType": "way",
+      "osmId": 76727509
+    },
+    {
+      "id": "osm-way-608169272",
+      "name": "Okhla Landfill",
+      "kind": "landfill",
+      "latitude": 28.5122538,
+      "longitude": 77.2837041,
+      "locality": "Tughlakabad, South East Delhi",
+      "osmType": "way",
+      "osmId": 608169272
+    }
+  ]
+}
